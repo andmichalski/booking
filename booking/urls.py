@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from hotels.views import MainView
+from django.conf import settings
+from django.conf.urls import include, url
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', MainView.as_view(), name="main_view"),
+    url(r'^search/', MainView.as_view(), name="search_view"),
+
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
