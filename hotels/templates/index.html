@@ -7,12 +7,9 @@
 <body>
     <div class="content" style="display: flex">
         <div style="flex: 30%">
-        search form
+        Search hotel form
         <form method="get" action={% url 'search_view' %}>
-            <p>location
-            <input name="location" /></p>
-            <p>standard
-            <input name="standard" /></p>
+            {{ form }}
             <p><input type="submit" value="Search"></p>
         </form>
         </div>
@@ -21,6 +18,7 @@
             <div style="border:1px solid black; padding: 10px">
             <p>{{ object.name }}</p>
             <p>{{ object.location }}</p>
+            <p>{{ object.standard }}</p>
             </div>
         {% endfor %}
         </div>
