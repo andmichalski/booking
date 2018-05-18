@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
 from .models import Hotel
 from .forms import HotelForm
@@ -41,3 +41,7 @@ class MainView(ListView, FormMixin):
         hotels = hotels.annotate(max_prize = Max('room__prize'))
         context['object_list'] = hotels
         return context
+
+class HotelDetailView(DetailView):
+    model = Hotel
+    template_name = "hotel_detail.html"

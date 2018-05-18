@@ -15,16 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from hotels.views import MainView
+from hotels.views import MainView, HotelDetailView
 from django.conf import settings
 from django.conf.urls import include, url
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', MainView.as_view(), name="main_view"),
+    url(r'^$', MainView.as_view(), name="main_view"),
     url(r'^search/', MainView.as_view(), name="search_view"),
-
+    url(r'^hotel/(?P<pk>\d+)/$', HotelDetailView.as_view(), name="hotel_view"),
 ]
 
 if settings.DEBUG:

@@ -16,7 +16,7 @@
         <div style="flex: 40%">
         {% for object in object_list %}
             <div style="border:1px solid black; padding: 10px">
-            <p>{{ object.name }}</p>
+                <p><a href="{% url 'hotel_view' pk=object.pk %}">{{ object.name }}</a></p>
             <p>{{ object.location }}</p>
             <p>{{ object.standard }}</p>
             <p>Price: from {{ object.min_prize }} to {{ object.max_prize }}</p>
