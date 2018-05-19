@@ -5,7 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-{{ object.name }}
-{{ object.location }}
+<p>Welcome in hotel {{ object.name }}.</p>
+<p>In {{ object.location }}</p>
+{% for room in object.room_set.all %}
+    <div style="border:1px solid black; padding: 10px">
+        <p>There is a room for {{ room.number_persons }} persons.</p>
+        <p>The price is {{ room.prize }} dollars.</p>
+    </div>
+{% endfor %}
 </body>
 </html>

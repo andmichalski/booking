@@ -45,3 +45,7 @@ class MainView(ListView, FormMixin):
 class HotelDetailView(DetailView):
     model = Hotel
     template_name = "hotel_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        return context
